@@ -19,5 +19,8 @@ pipeline {
                 sh 'docker build -t surya22ganesh/tettrisgame .'
             }
         }
+        stage('trivy image scan'){
+            sh 'trivy image surya22ganesh/tettrisgame > trivy_image_report.txt'
+        }
     }
 }
