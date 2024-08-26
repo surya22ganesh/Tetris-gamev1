@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+     environment {
+        DOCKER_REGISTRY = 'https://hub.docker.com'
+    }
+
     stages {
         stage('Hello') {
             steps {
@@ -28,7 +32,7 @@ pipeline {
             steps{
                 withDockerRegistry([credentialsId: 'docker', url: 'https://hub.docker.com']) {
                     sh '''
-                        docker login
+                        docker login $DOCKER_REGISTRY
                         // docker login -u surya22ganesh -p Surya@1999 
                     '''
                 }
