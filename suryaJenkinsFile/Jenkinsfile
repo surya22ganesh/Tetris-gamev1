@@ -10,7 +10,7 @@ pipeline {
         stage('trivy scan'){
             steps{
                 sh '''
-                    trivy fs . > trivy_fs_report.txt
+                    /snap/bin/trivy/trivy fs . > trivy_fs_report.txt
                 '''
             }
         }
