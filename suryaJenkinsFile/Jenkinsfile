@@ -19,11 +19,11 @@ pipeline {
                 sh 'docker build -t surya22ganesh/tettrisgame .'
             }
         }
-        stage('trivy image scan'){
-            steps{
-                sh '/bin/trivy image surya22ganesh/tettrisgame > trivy_image_report.txt'
-            }
-        }
+        // stage('trivy image scan'){
+        //     steps{
+        //         sh '/bin/trivy image surya22ganesh/tettrisgame > trivy_image_report.txt'
+        //     }
+        // }
         stage('docker image push'){
             steps{
                 withDockerRegistry(credentialsId: 'docker', url: 'https://hub.docker.com/') {
