@@ -24,5 +24,16 @@ pipeline {
                 sh '/bin/trivy image surya22ganesh/tettrisgame > trivy_image_report.txt'
             }
         }
+        stage('docker image push'){
+            steps{
+                withDockerRegistry(credentialsId: 'docker', url: 'https://hub.docker.com/') {
+                    sh '''
+                        docker login 
+                    '''
+                }
+            }
+        }
+
+
     }
 }
