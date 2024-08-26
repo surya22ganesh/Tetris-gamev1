@@ -20,7 +20,9 @@ pipeline {
             }
         }
         stage('trivy image scan'){
-            sh 'trivy image surya22ganesh/tettrisgame > trivy_image_report.txt'
+            steps{
+                sh 'trivy image surya22ganesh/tettrisgame > trivy_image_report.txt'
+            }
         }
     }
 }
