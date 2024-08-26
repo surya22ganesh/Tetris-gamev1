@@ -7,14 +7,13 @@ pipeline {
                 echo 'Hello World'
             }
         }
-        stage('trivy scan'){
-            steps{
-                sh '''
-                    // /snap/bin/trivy fs . > trivy_fs_report.txt
-                    /snap/bin/trivy fs . > trivy_fs_report.txt
-                '''
-            }
-        }
+        // stage('trivy scan'){
+        //     steps{
+        //         sh '''
+        //             /snap/bin/trivy fs . > trivy_fs_report.txt
+        //         '''
+        //     }
+        // }
         stage('docker build'){
             steps{
                 sh 'docker build -t surya22ganesh/tettrisgame .'
