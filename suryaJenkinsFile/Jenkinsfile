@@ -39,6 +39,15 @@ pipeline {
                 sh 'trivy image surya22ganesh/tettrisgame > trivy_image.txt'
             }
         }
+        stage('moving current workspace files to new directory'){
+            steps{
+                sh '''
+                    sudo mkdir tettrisgame
+                    sudo chmod 777 tettrisgame
+                    sudo mv * tettrisgame
+                '''
+            }
+        }
         stage('updating deployment.yaml file'){
             steps{
                 git branch: 'main', changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/surya22ganesh/surya-tetris-deployment-file.git'
