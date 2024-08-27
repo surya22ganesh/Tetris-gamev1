@@ -55,7 +55,7 @@ pipeline {
         }
         stage('updating deployment.yaml'){
             steps{
-                sh ''' sed -i "/image/c\image: surya22ganesh/tettrisgame:latest" deployment.yml '''
+                sh ''' sed -i '/image/c image: surya22ganesh/tettrisgame:latest' deployment.yml '''
                 
             }
         }
