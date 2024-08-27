@@ -45,6 +45,7 @@ pipeline {
                     sudo mkdir ../tettrisgame
                     sudo chmod 777 ../tettrisgame
                     sudo mv * ../tettrisgame
+                    sudo mv ../tettrisgame .
                 '''
             }
         }
