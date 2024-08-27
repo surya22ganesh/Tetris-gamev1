@@ -34,7 +34,15 @@ pipeline {
                 // }
             }
         }
-
-
+        stage('trivvy image scan'){
+            steps{
+                sh 'trivy image surya22ganesh/tettrisgame > trivy_image.txt'
+            }
+        }
+        stage('updating deployment.yaml file'){
+            steps{
+                git branch: 'main', changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/surya22ganesh/surya-tetris-deployment-file.git'
+            }
+        }
     }
 }
