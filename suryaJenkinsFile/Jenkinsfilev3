@@ -13,7 +13,7 @@ pipeline {
                 echo "${env.name} and ${env.place}"    
             }
         }
-        stages('env in a stage'){
+        stage('env in a stage'){
             environment {
                 name = "block_scoped_surya"
             }
@@ -21,7 +21,7 @@ pipeline {
                 echo "${env.name} and ${env.place}"    
             }
         }
-        stages('with env'){
+        stage('with env'){
             steps{
                 withEnv(["name=Hendry"]){
                     echo "${env.name}"
