@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    environment{
+        name = "global_surya"
+        place = "chennai"
+    }
+
+    stages {
+        stage('stage 1') {
+            steps {
+                echo "pipeline started"
+                echo "${env.name} and ${env.place}"    
+            }
+        }
+        stages('env in a stage'){
+            environment {
+                name = "block_scoped_surya"
+            }
+            steps {
+                echo "${env.name} $ ${env.place}"    
+            }
+        }
+        stages('with env'){
+            steps{
+                withEnv(["name=Hendry"]){
+                    echo "${env.name}"
+                }
+            }
+        }
+    }
+}
