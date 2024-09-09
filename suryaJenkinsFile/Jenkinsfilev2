@@ -1,12 +1,15 @@
 pipeline {
     agent any
-
+    environment {
+        name = "surya ganesh"
+    }
     stages{
 
         stage('hello world'){
             steps{
-                echo 'hello world'
+                echo 'hello world .'
                 sh 'ls -lrt'
+                echo '$name'
             }
         }
     }
