@@ -23,7 +23,7 @@ pipeline {
         }
         stage('with env'){
             steps{
-                withEnv(["name=Hendry, place=usa"]){
+                withEnv(["name=Hendry","place=usa"]){
                     echo "${env.name} and ${env.place}"
                 }
             }
