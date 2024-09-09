@@ -18,7 +18,7 @@ pipeline {
                 name = "block_scoped_surya"
             }
             steps {
-                echo "${env.name} $ ${env.place}"    
+                echo "${env.name} and ${env.place}"    
             }
         }
         stages('with env'){
