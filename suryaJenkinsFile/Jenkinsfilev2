@@ -21,5 +21,12 @@ pipeline {
                echo "hii Iam ${env.name} , ${env.age}"
             }
         }
+        stage('with env stage'){
+            steps{
+                withEnv(["name=Bob"]){
+	    		    echo "Current user is ${env.name}"
+                }
+            }
+        }
     }
 }
