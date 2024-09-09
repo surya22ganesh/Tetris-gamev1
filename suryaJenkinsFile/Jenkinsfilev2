@@ -12,5 +12,14 @@ pipeline {
                 echo "${env.name}"
             }
         }
+        stage('env in a stage'){
+            environment{
+                age  = 20
+                name = 'Surya R' 
+            }
+            steps{
+               echo "hii Iam ${env.name} , ${env.age}"
+            }
+        }
     }
 }
