@@ -1,18 +1,27 @@
+currentBuild.displayName = " Surya - "+currentBuild.number
+
+environment {
+    IMAGE_TAG = image_tag()
+}
+
 pipeline {
     agent any
-
-    environment{
-        name = "global_surya"
-        place = "chennai"
-    }
-
     stages{
         stage('hello world'){
-            steps {
-                echo "hello world"
+           steps{
+             echo "hello world ${BUILD_DISPLAY_NAME}"
+             echo "${JOB_NAME}"
+           }
+        }
+        stage('docker build'){
+            steps{
+                sh "sudo docker build -t surya22ganesh/sampleimg:${env.IMAGE_TAG} ."
             }
         }
-        // stage('stage 2')
     }
+}
 
+def image_tag() {
+    def tag = sh script: 'git rev-parse HEAD', returnStdout: true
+    return tag
 }
