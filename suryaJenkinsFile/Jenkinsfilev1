@@ -28,7 +28,7 @@ pipeline {
             steps{
                 // withDockerRegistry([credentialsId: 'docker', url: 'https://hub.docker.com']) {
                     sh '''
-                        docker login -u surya22ganesh -p Surya@1999
+                        docker login -u suername -p password
                         docker push surya22ganesh/tettrisgame
                     '''
                 // }
